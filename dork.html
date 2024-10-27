@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://imgurl.ir/uploads/r68071_photo_2024-09-16_04-59-55.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            color: #dd0df0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #edc913;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(177, 53, 53, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #bafd01;
+            color: rgb(199, 232, 12);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #dc23c6;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .results a {
+            display: block;
+            color: #9221e2;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .results a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Create Link</h1>
+        <input type="text" id="domain" placeholder="Enter Domain" />
+        <button class="button" onclick="generateLinks()">Create Link</button>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        function generateLinks() {
+            var domain = document.getElementById('domain').value.trim(); 
+            var dorks = [
+                'site:' + domain + ' filetype:pdf',
+                'site:' + domain + ' intext:"login"',
+                'site:' + domain + ' intitle:"index of"',
+                'site:' + domain + ' inurl:"admin"',
+                'site:' + domain + ' "Welcome to"',        
+                'site:' + domain + ' "ext:php | ext:aspx | ext:asp | ext:jsp | ext:html | ext:htm"',
+                'site:' + domain + ' "ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:xml"',
+                'site:' + domain + ' "inurl:url | inurl:return | inurl:next | inurl:redire | inurl:http"',
+                'site:' + domain + ' "inurl:http | inurl:url | inurl:path | inurl:dest | inurl:html | inurl:data | inurl:domain | inurl:page"',
+                'site:' + domain + ' "inurl:config | inurl:env | inurl:settng | inurl:backup | inurl:admin | inurl:php"',
+                'site:' + domain + ' "inurl:email | inurl:phone | inurl:password= | inurl:secret"',
+                'site:' + domain + ' "inurl:apidocs | inurl:api-docs | inurl/swagger | inurl/api-explorer"',
+                'site:' + domain + ' "inurl:cmd | inurl:exec | inurl:query= | inurl:codes | inurl:dom | inurl:run | inurl:read | inurl:ping"',
+                'site:' + domain + ' "inurl:(unsubscribe | register | feedback | signup | join | contact profile user comment | api | developer | affiliate/upload/mobile/upgrade/password) intitle:"Welcome to Nginx""'
+            ];
+            var resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            dorks.forEach(function(dork) {
+                var link = "https://www.google.com/search?q=" + encodeURIComponent(dork);
+
+                var linkElement = document.createElement('a');
+                linkElement.href = link;
+                linkElement.target = '_blank';
+                linkElement.textContent = dork;
+
+                resultsDiv.appendChild(linkElement);
+            });
+        }
+    </script>
+
+</body>
+</html>
+<!-- Channel => https://t.me/zero0sec -->
